@@ -5,14 +5,6 @@ import random
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from PIL import Image
-import gdown
-
-model_path = "model_uang_emisi22.keras"
-gdrive_id = "1QqspVQu0Z6_Ex5Yvql39Bs9idAPpkpkk"
-
-if not os.path.exists(model_path):
-    url = f"https://drive.google.com/uc?id={gdrive_id}"
-    gdown.download(url, model_path, quiet=False)
 
 st.set_page_config(page_title="Mengenal Uang Rupiah", layout="wide")
 
@@ -66,7 +58,7 @@ with st.sidebar:
 # -------------------- Load Model --------------------
 @st.cache_resource
 def load_money_model():
-    return load_model("model_uang_emisi22.keras")
+    return load_model("model_uang_emisi22.h5")
 
 model = load_money_model()
 
